@@ -1,6 +1,7 @@
 import Quickshell
 import Quickshell.Io
 import QtQuick
+import Quickshell.Services.Pipewire
 
 Text {
     id: soundButton
@@ -12,11 +13,18 @@ Text {
     property var hyprclass: size
     property var action: [terminal, "--app-id", size, "--class", hyprclass, app]
 
-    text: icon + " 100%"
+    property var volume: Math.round(Pipewire.defaultAudioSink.audio.volume * 100)
+
+    text: icon + " " + volume + "%"
 
     color: mouseArea.containsMouse ? bar.accentColor : bar.textColor
     font.pixelSize: bar.textSize
     font.family: bar.fontFamily
+
+    PwObjectTracker {
+        id: audioTracker
+        objects: Pipewire.defaultAudioSink
+    }
 
     MouseArea {
         id: mouseArea
