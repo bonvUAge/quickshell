@@ -29,31 +29,48 @@ PanelWindow {
         right: true
     }
 
-    implicitHeight: config.barHeight
+    implicitHeight: config.barHeight + config.barMargin * 2
     exclusiveZone: implicitHeight
 
-    color: barColor
+    color: "transparent"
 
-    RowLayout {
+    margins {
+        top: config.barMargin
+        left: config.barMargin
+        right: config.barMargin
+    }
+
+    Rectangle {
+        id: barRect
         anchors.fill: parent
-        anchors.leftMargin: 10
-        anchors.rightMargin: 10
+        anchors.topMargin: -config.barMargin
+        anchors.leftMargin: -config.barMargin
+        anchors.rightMargin: -config.barMargin
 
-        Item {
-            Layout.fillWidth: true
-        }
+        color: bar.barColor
+        radius: config.barRadius
 
-        Widgets.Clock {
-            Layout.alignment: Qt.AlignVCenter
-        }
+        RowLayout {
+            anchors.fill: parent
+            anchors.leftMargin: 10
+            anchors.rightMargin: 10
 
-        Item {
-            Layout.fillWidth: true
-        }
+            Item {
+                Layout.fillWidth: true
+            }
 
-        Widgets.SysTray {
-            Layout.alignment: Qt.AlignVCenter
-            barWindow: bar
+            Widgets.Clock {
+                Layout.alignment: Qt.AlignVCenter
+            }
+
+            Item {
+                Layout.fillWidth: true
+            }
+
+            Widgets.SysTray {
+                Layout.alignment: Qt.AlignVCenter
+                barWindow: bar
+            }
         }
     }
 }
