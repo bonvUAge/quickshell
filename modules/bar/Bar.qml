@@ -53,6 +53,7 @@ PanelWindow {
             anchors.fill: parent
             anchors.leftMargin: config.barPaddingSides
             anchors.rightMargin: config.barPaddingSides
+            spacing: 15
 
             Item {
                 Layout.fillWidth: true
@@ -60,17 +61,27 @@ PanelWindow {
 
             Widgets.Clock {
                 Layout.alignment: Qt.AlignVCenter
+                app: "lvsk-calendar"
+                size: "smfl"
             }
 
             Item {
                 Layout.fillWidth: true
             }
 
+            Widgets.Sound {
+                Layout.alignment: Qt.AlignVCenter
+                icon: ""
+                app: "wiremix"
+                size: "smfl"
+            }
+
             Widgets.Button {
                 id: bluetoothButton
                 Layout.alignment: Qt.AlignVCenter
                 icon: ""
-                action: [config.defaultTerminal, "--app-id", "smfl", "bluetui"]
+                app: "bluetui"
+                size: "smfl"
             }
 
             Widgets.SysTray {

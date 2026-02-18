@@ -4,6 +4,12 @@ import QtQuick
 
 Text {
     id: clock
+
+    property var app: ""
+    property var size: "bfl"
+    property var hyprclass: size
+    property var action: [terminal, "--app-id", size, "--class", hyprclass, app]
+
     text: Qt.formatDateTime(clockData.date, "hh:mm")
 
     color: mouseArea.containsMouse ? bar.accentColor : bar.textColor
@@ -33,6 +39,6 @@ Text {
     Process {
         id: calendarProcess
         running: false
-        command: [bar.terminal, "--app-id", "smfl", "lvsk-calendar"]
+        command: action
     }
 }
