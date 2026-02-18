@@ -69,24 +69,26 @@ PanelWindow {
                 Layout.fillWidth: true
             }
 
-            Widgets.Sound {
+            Row {
+                spacing: 15
                 Layout.alignment: Qt.AlignVCenter
-                icon: ""
-                app: "wiremix"
-                size: "smfl"
-            }
 
-            Widgets.Button {
-                id: bluetoothButton
-                Layout.alignment: Qt.AlignVCenter
-                icon: ""
-                app: "bluetui"
-                size: "smfl"
-            }
+                Widgets.Sound {
+                    icon: ""
+                    app: "wiremix"
+                    size: "smfl"
+                }
 
-            Widgets.SysTray {
-                Layout.alignment: Qt.AlignVCenter
-                barWindow: bar
+                Widgets.Button {
+                    id: bluetoothButton
+                    icon: ""
+                    app: "bluetui"
+                    size: "smfl"
+                }
+
+                Widgets.SysTray {
+                    barWindow: bar
+                }
             }
         }
     }
