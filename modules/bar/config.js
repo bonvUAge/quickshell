@@ -3,6 +3,8 @@ const config = {
   barTextSize: 18,
   barOpacity: 0.8,
   defaultTerminal: "kitty",
-  barMargin: 0,
-  barRadius: 6,
+  barRadius: 0,
+  barMarginTop: 0,
+  barMarginSides: 0,
+  barPaddingSides: 16,
 };

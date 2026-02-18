@@ -22,6 +22,7 @@ PanelWindow {
     property int textSize: config.barTextSize
     property color barColor: hexToRgba(colors.base, config.barOpacity)
     property color textColor: colors.text
+    property color accentColor: colors.accent
 
     anchors {
         top: true
@@ -29,31 +30,28 @@ PanelWindow {
         right: true
     }
 
-    implicitHeight: config.barHeight + config.barMargin * 2
+    implicitHeight: config.barHeight + config.barMarginTop
     exclusiveZone: implicitHeight
 
     color: "transparent"
 
-    margins {
-        top: config.barMargin
-        left: config.barMargin
-        right: config.barMargin
-    }
-
     Rectangle {
         id: barRect
-        anchors.fill: parent
-        anchors.topMargin: -config.barMargin
-        anchors.leftMargin: -config.barMargin
-        anchors.rightMargin: -config.barMargin
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: config.barMarginSides
+        anchors.rightMargin: config.barMarginSides
+        anchors.topMargin: config.barMarginTop
 
+        implicitHeight: config.barHeight
         color: bar.barColor
         radius: config.barRadius
 
         RowLayout {
             anchors.fill: parent
-            anchors.leftMargin: 10
-            anchors.rightMargin: 10
+            anchors.leftMargin: config.barPaddingSides
+            anchors.rightMargin: config.barPaddingSides
 
             Item {
                 Layout.fillWidth: true
