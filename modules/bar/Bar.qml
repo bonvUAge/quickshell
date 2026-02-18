@@ -18,6 +18,7 @@ PanelWindow {
     property var config: Config.config
     property var colors: Colors
 
+    property string fontFamily: config.barFontFamily
     property string terminal: config.defaultTerminal
     property int textSize: config.barTextSize
     property color barColor: hexToRgba(colors.base, config.barOpacity)

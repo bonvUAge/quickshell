@@ -8,6 +8,7 @@ Text {
 
     color: bar.textColor
     font.pixelSize: bar.textSize
+    font.family: bar.fontFamily
 
     SystemClock {
         id: clockData

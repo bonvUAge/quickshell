@@ -7,4 +7,5 @@ const config = {
   barMarginTop: 0,
   barMarginSides: 0,
   barPaddingSides: 16,
+  barFontFamily: "JetBrains Mono Nerd Font Propo",
 };
