@@ -3,14 +3,18 @@ import QtQuick
 import QtQuick.Layouts
 import "widgets" as Widgets
 import "colors/catppuccin.js" as Colors
+import "config.js" as Config
 
 PanelWindow {
     id: bar
 
-    property string terminal: "kitty"
-    property int textSize: 16
-    property color barColor: Colors.base
-    property color textColor: Colors.text
+    property var config: Config.config
+    property var colors: Colors
+
+    property string terminal: config.defaultTerminal
+    property int textSize: config.barTextSize
+    property color barColor: colors.base
+    property color textColor: colors.text
 
     anchors {
         top: true
@@ -18,7 +22,7 @@ PanelWindow {
         right: true
     }
 
-    implicitHeight: 30
+    implicitHeight: config.barHeight
     exclusiveZone: implicitHeight
 
     color: barColor
