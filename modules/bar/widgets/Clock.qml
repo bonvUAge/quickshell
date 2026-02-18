@@ -6,7 +6,7 @@ Text {
     id: clock
     text: Qt.formatDateTime(clockData.date, "hh:mm")
 
-    color: bar.textColor
+    color: mouseArea.containsMouse ? bar.accentColor : bar.textColor
     font.pixelSize: bar.textSize
     font.family: bar.fontFamily
 
@@ -16,8 +16,10 @@ Text {
     }
 
     MouseArea {
+        id: mouseArea
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
+        hoverEnabled: true
 
         onClicked: {
             if (!calendarProcess.running) {
