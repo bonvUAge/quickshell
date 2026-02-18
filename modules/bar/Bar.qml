@@ -49,46 +49,33 @@ PanelWindow {
         color: bar.barColor
         radius: config.barRadius
 
-        RowLayout {
-            anchors.fill: parent
-            anchors.leftMargin: config.barPaddingSides
+        Widgets.Clock {
+            id: clockWidget
+            anchors.centerIn: parent
+            app: "lvsk-calendar"
+            size: "smfl"
+        }
+
+        Row {
+            anchors.right: parent.right
             anchors.rightMargin: config.barPaddingSides
+            anchors.verticalCenter: parent.verticalCenter
             spacing: 15
 
-            Item {
-                Layout.fillWidth: true
-            }
-
-            Widgets.Clock {
-                Layout.alignment: Qt.AlignVCenter
-                app: "lvsk-calendar"
+            Widgets.Sound {
+                icon: ""
+                app: "wiremix"
                 size: "smfl"
             }
 
-            Item {
-                Layout.fillWidth: true
+            Widgets.Button {
+                icon: ""
+                app: "bluetui"
+                size: "smfl"
             }
 
-            Row {
-                spacing: 15
-                Layout.alignment: Qt.AlignVCenter
-
-                Widgets.Sound {
-                    icon: ""
-                    app: "wiremix"
-                    size: "smfl"
-                }
-
-                Widgets.Button {
-                    id: bluetoothButton
-                    icon: ""
-                    app: "bluetui"
-                    size: "smfl"
-                }
-
-                Widgets.SysTray {
-                    barWindow: bar
-                }
+            Widgets.SysTray {
+                barWindow: bar
             }
         }
     }
