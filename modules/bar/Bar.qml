@@ -66,6 +66,13 @@ PanelWindow {
                 Layout.fillWidth: true
             }
 
+            Widgets.Button {
+                id: bluetoothButton
+                Layout.alignment: Qt.AlignVCenter
+                icon: ""
+                action: [config.defaultTerminal, "--app-id", "smfl", "bluetui"]
+            }
+
             Widgets.SysTray {
                 Layout.alignment: Qt.AlignVCenter
                 barWindow: bar
