@@ -8,12 +8,19 @@ import "config.js" as Config
 PanelWindow {
     id: bar
 
+    function hexToRgba(hex, alpha) {
+        var r = parseInt(hex.slice(1, 3), 16) / 255;
+        var g = parseInt(hex.slice(3, 5), 16) / 255;
+        var b = parseInt(hex.slice(5, 7), 16) / 255;
+        return Qt.rgba(r, g, b, alpha);
+    }
+
     property var config: Config.config
     property var colors: Colors
 
     property string terminal: config.defaultTerminal
     property int textSize: config.barTextSize
-    property color barColor: colors.base
+    property color barColor: hexToRgba(colors.base, config.barOpacity)
     property color textColor: colors.text
 
     anchors {
