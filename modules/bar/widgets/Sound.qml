@@ -6,7 +6,16 @@ import Quickshell.Services.Pipewire
 Text {
     id: soundButton
 
-    property string icon: "" || "?"
+    property string icon: {
+        if (volume <= 0)
+            return "";
+        if (volume <= 30)
+            return "";
+        if (volume <= 60)
+            return "";
+        return "";
+    }
+    
     property var terminal: bar.config.defaultTerminal || "kitty"
     property var app: ""
     property var size: "bfl"

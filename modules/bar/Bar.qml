@@ -63,7 +63,6 @@ PanelWindow {
             spacing: 15
 
             Widgets.Sound {
-                icon: ""
                 app: "wiremix"
                 size: "smfl"
             }
